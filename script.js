@@ -13,13 +13,13 @@ function Book(title, author, pages, read){
 
 const theHobbit =new Book('The Hobbit', 'J.R.R Tolkien', '295', 'read');
 
-bookOne.textContent = `${theHobbit.title} is written by ${theHobbit.author}. It has ${theHobbit.pages} pages and I have ${theHobbit.read} it.`
+//bookOne.textContent = `${theHobbit.title} is written by ${theHobbit.author}. It has ${theHobbit.pages} pages and I have ${theHobbit.read} it.`
 
 function click(){
   alert('clicked!')
 }
 
-newBook.addEventListener('click', click);
+//newBook.addEventListener('click', click);
 
 
 
@@ -29,6 +29,7 @@ let book = document.getElementById('book');
 
 //make form parent
   let form = document.createElement('form')
+  form.setAttribute("class","form")
   form.setAttribute("method", "post");
   form.setAttribute("action","javascript:submit()");
 
@@ -80,7 +81,9 @@ let book = document.getElementById('book');
   form.appendChild(pagesLabel);
   form.appendChild(pagesInput);
   //appending read
-
+  form.appendChild(readLabel);
+  form.appendChild(readInput);
+ 
 
 book.appendChild(form);
 
