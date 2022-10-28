@@ -6,22 +6,56 @@
     display:flex;
     flex-direction:column;
     justify-content: space-between;
-    border:2px solid red;
+    background: rgb(238, 247, 234);
+    box-shadow: 0 6px 6px 2px rgb(188, 235, 188);
+    border-radius: 10px;
     height:400px;
     width:400px;
     position:absolute;
     top: calc(50vh - (400px / 2));
-    left: calc(50vw - (400px / 2))
-
-
+    left: calc(50vw - (400px / 2));
+    font-family: 'Lucida Console', Courier, monospace;
 }
+
 form label{
     text-align: center;
     font-size: 1.5em;
     margin-top:25px;
+    font-family: 'Lucida Console', Courier, monospace;
 }
 
 form input{
-    margin: 0px 60px 0px 60px;
+    margin: 0px 60px 10px 60px;
     height:30px;
+    font-size:20px;
+    font-family: 'Lucida Console', Courier, monospace;
+}
+
+#formExit{
+    text-align:center;
+    width:25px;
+    height:25px;
+    position:absolute;
+    left:365px;
+    top:10px;
+    border-radius:5px;
+    background-color:rgb(255, 255, 255);
+    border:1px solid rgb(170, 217, 149);
+    box-shadow: 0 1px 1px 1px rgb(215, 215, 215);
+    transform: translateY(4px);
+    font-family: 'Lucida Console', Courier, monospace;
+}
+
+#formSubmit{
+    text-align:center;
+    width:70px;
+    height:25px;
+    position:absolute;
+    left:315px;
+    top:360px;
+    border-radius:5px;
+    background-color:rgb(255, 255, 255);
+    border:1px solid rgb(165, 200, 148);
+    box-shadow: 0 1px 1px 1px rgb(215, 215, 215);
+    font-family: 'Lucida Console', Courier, monospace;
 }
