@@ -15,15 +15,13 @@ const theHobbit =new Book('The Hobbit', 'J.R.R Tolkien', '295', 'read');
 
 //bookOne.textContent = `${theHobbit.title} is written by ${theHobbit.author}. It has ${theHobbit.pages} pages and I have ${theHobbit.read} it.`
 
-function click(){
-  alert('clicked!')
-}
+newBook.addEventListener('click', getForm);
 
-//newBook.addEventListener('click', click);
-
-
+let book = document.getElementById('book');
 
 //THE FORM ------
+
+function getForm(){
 
 let book = document.getElementById('book');
 
@@ -71,6 +69,15 @@ let book = document.getElementById('book');
   readInput.setAttribute('value','yes');
   readInput.setAttribute("id","read");
 
+  //create x button
+  let formExit = document.createElement("button");
+  formExit.setAttribute("id","formExit")
+  formExit.textContent = "X";
+
+  let formSubmit = document.createElement("button");
+  formSubmit.setAttribute("id","formSubmit")
+  formSubmit.textContent = "SUBMIT";
+  
   //appending title
   form.appendChild(titleLabel);
   form.appendChild(titleInput);
@@ -83,14 +90,21 @@ let book = document.getElementById('book');
   //appending read
   form.appendChild(readLabel);
   form.appendChild(readInput);
- 
 
+  //append buttons
+  form.appendChild(formExit);
+  form.appendChild(formSubmit);
+ 
 book.appendChild(form);
 
+function closeForm(){
+  book.removeChild(form);
+}
+
+formExit.addEventListener('click', closeForm);
 
 
-
-
+};
 
 
 
