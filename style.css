@@ -1,4 +1,4 @@
-
+/* FORM--------------------------- */
 #book{
     text-align: center;
 }
@@ -58,4 +58,33 @@ form input{
     border:1px solid rgb(165, 200, 148);
     box-shadow: 0 1px 1px 1px rgb(215, 215, 215);
     font-family: 'Lucida Console', Courier, monospace;
+}
+/* PAGE------------------------------------ */
+
+body{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows:1fr 1fr 10fr;
+}
+
+#page-header{
+    grid-column: 1/4;
+    text-align: center;
+    font-size:40px;
+    font-family: 'Lucida Console', Courier, monospace;
+}
+
+#newBook{
+    font-family: 'Lucida Console', Courier, monospace;
+    background-color: whitesmoke;
+    font-size:20px;
+    height:3em;
+    width:200px;
+    margin:0 1em 0 1em;
+    
+}
+#library{
+    grid-column:1/4;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
