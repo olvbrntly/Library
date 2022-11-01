@@ -23,89 +23,98 @@ let book = document.getElementById('book');
 
 function getForm(){
 
-let book = document.getElementById('book');
+  let book = document.getElementById('book');
 
-//make form parent
-  let form = document.createElement('form')
-  form.setAttribute("class","form")
-  form.setAttribute("method", "post");
-  form.setAttribute("action","javascript:submit()");
+  //make form parent
+    let form = document.createElement('form')
+    form.setAttribute("class","form")
+    form.setAttribute("method", "post");
+    form.setAttribute("action","javascript:submit()");
 
-  //create title input
-  let titleLabel = document.createElement('label');
-  titleLabel.setAttribute("for","title")
-  titleLabel.textContent ='Book Title: '
+    //create title input
+    let titleLabel = document.createElement('label');
+    titleLabel.setAttribute("for","title")
+    titleLabel.textContent ='Book Title: '
 
-  let titleInput = document.createElement("input");
-  titleInput.setAttribute("type","text");
-  titleInput.setAttribute("id","title");
+    let titleInput = document.createElement("input");
+    titleInput.setAttribute("type","text");
+    titleInput.setAttribute("id","title");
 
-  //create author input
-  let authorLabel = document.createElement('label');
-  authorLabel.setAttribute("for","author")
-  authorLabel.textContent ='Author: '
+    //create author input
+    let authorLabel = document.createElement('label');
+    authorLabel.setAttribute("for","author")
+    authorLabel.textContent ='Author: '
 
-  let authorInput = document.createElement("input");
-  authorInput.setAttribute("type","text");
-  authorInput.setAttribute("id","author");
+    let authorInput = document.createElement("input");
+    authorInput.setAttribute("type","text");
+    authorInput.setAttribute("id","author");
 
-  //create pages input
-  let pagesLabel = document.createElement('label');
-  pagesLabel.setAttribute("for","pages")
-  pagesLabel.textContent ='Page Number: '
+    //create pages input
+    let pagesLabel = document.createElement('label');
+    pagesLabel.setAttribute("for","pages")
+    pagesLabel.textContent ='Page Number: '
 
-  let pagesInput = document.createElement("input");
-  pagesInput.setAttribute("type","number");
-  pagesInput.setAttribute('min','0');
-  pagesInput.setAttribute("id","pages");
+    let pagesInput = document.createElement("input");
+    pagesInput.setAttribute("type","number");
+    pagesInput.setAttribute('min','0');
+    pagesInput.setAttribute("id","pages");
 
-  //create read input
-  let readLabel = document.createElement('label');
-  readLabel.setAttribute("for","read")
-  readLabel.textContent ='Read: '
+    //create read input
+    let readLabel = document.createElement('label');
+    readLabel.setAttribute("for","read")
+    readLabel.textContent ='Read: '
 
-  let readInput = document.createElement("input");
-  readInput.setAttribute("type","checkbox");
-  readInput.setAttribute('value','yes');
-  readInput.setAttribute("id","read");
+    let readInput = document.createElement("input");
+    readInput.setAttribute("type","checkbox");
+    readInput.setAttribute('value','yes');
+    readInput.setAttribute("id","read");
 
-  //create x button
-  let formExit = document.createElement("button");
-  formExit.setAttribute("id","formExit")
-  formExit.textContent = "X";
+    //create x button
+    let formExit = document.createElement("button");
+    formExit.setAttribute("id","formExit")
+    formExit.textContent = "X";
 
-  let formSubmit = document.createElement("button");
-  formSubmit.setAttribute("id","formSubmit")
-  formSubmit.textContent = "SUBMIT";
+    let formSubmit = document.createElement("button");
+    formSubmit.setAttribute("id","formSubmit")
+    formSubmit.textContent = "SUBMIT";
+    
+    //appending title
+    form.appendChild(titleLabel);
+    form.appendChild(titleInput);
+    //appending:author
+    form.appendChild(authorLabel);
+    form.appendChild(authorInput);
+    //appending pages
+    form.appendChild(pagesLabel);
+    form.appendChild(pagesInput);
+    //appending read
+    form.appendChild(readLabel);
+    form.appendChild(readInput);
+
+    //append buttons
+    form.appendChild(formExit);
+    form.appendChild(formSubmit);
   
-  //appending title
-  form.appendChild(titleLabel);
-  form.appendChild(titleInput);
-  //appending:author
-  form.appendChild(authorLabel);
-  form.appendChild(authorInput);
-  //appending pages
-  form.appendChild(pagesLabel);
-  form.appendChild(pagesInput);
-  //appending read
-  form.appendChild(readLabel);
-  form.appendChild(readInput);
+  book.appendChild(form);
 
-  //append buttons
-  form.appendChild(formExit);
-  form.appendChild(formSubmit);
- 
-book.appendChild(form);
+  //exit button is funcitonal
+  function closeForm(){
+    book.removeChild(form);
+  }
 
-function closeForm(){
-  book.removeChild(form);
-}
+  //submit button on for adds a new Book in Library array
+  function submit(){
+    let newAdd = new Book(document.getElementById('title').value, document.getElementById('author').value ,document.getElementById('pages').value, document.getElementById('read').value);
+    console.log(newAdd);
+    myLibrary.push(newAdd);
+    book.removeChild(form);
+  }
 
-formExit.addEventListener('click', closeForm);
-
+  //form button event listeners
+  formExit.addEventListener('click', closeForm);
+  formSubmit.addEventListener('click', submit);
 
 };
-
 
 
 
