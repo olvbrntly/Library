@@ -1,5 +1,6 @@
 let bookOne = document.getElementById('book-one');
 const newBook = document.getElementById('newBook');
+let library = document.getElementById('library');
 
 let myLibrary=[]
 
@@ -115,6 +116,7 @@ function getForm(){
       console.log(newAdd);
       myLibrary.push(newAdd);
       book.removeChild(form);
+      addBookToLibrary();
       newBook.disabled = false
     }
   }
@@ -126,7 +128,13 @@ function getForm(){
 };
 
 function addBookToLibrary(){
-  
+  for(i=0; i < myLibrary.length; i++){
+    let newBookDiv = document.createElement('div');
+    newBookDiv.setAttribute('class', 'libraryBook');
+    newBookDiv.textContent = `book: ${myLibrary[i].title}, author: ${myLibrary[i].author}`;
+    library.appendChild(newBookDiv);
+  }
+
 }
 
 
