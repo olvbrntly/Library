@@ -96,18 +96,27 @@ function getForm(){
     form.appendChild(formSubmit);
   
   book.appendChild(form);
+  newBook.disabled = true;
 
   //exit button is funcitonal
   function closeForm(){
     book.removeChild(form);
+    newBook.disabled = false
   }
 
   //submit button on for adds a new Book in Library array
   function submit(){
-    let newAdd = new Book(document.getElementById('title').value, document.getElementById('author').value ,document.getElementById('pages').value, document.getElementById('read').value);
-    console.log(newAdd);
-    myLibrary.push(newAdd);
-    book.removeChild(form);
+    if(document.getElementById('title').value == ""){
+      book.removeChild(form);
+      newBook.disabled = false
+    }
+    else{
+      let newAdd = new Book(document.getElementById('title').value, document.getElementById('author').value ,document.getElementById('pages').value, document.getElementById('read').value);
+      console.log(newAdd);
+      myLibrary.push(newAdd);
+      book.removeChild(form);
+      newBook.disabled = false
+    }
   }
 
   //form button event listeners
