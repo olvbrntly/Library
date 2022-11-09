@@ -1,3 +1,4 @@
+
 /* FORM--------------------------- */
 #book{
     text-align: center;
@@ -72,7 +73,7 @@ body{
     grid-column: 1/4;
     text-align: center;
     font-size:50px;
-     margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
     font-family: 'Lucida Console', Courier, monospace;
 }
 
@@ -102,4 +103,32 @@ body{
     grid-column:1/4;
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
+    border:2px solid red;
+    height:25em;
 }
+
+.libraryBook{
+    margin:10px;
+    font-size:1.5em;
+    color:white;
+    font-family: 'Lucida Console', Courier, monospace;
+    background-color:black;
+    font-weight:700;
+    border-radius: 20px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+
+}
+
+#pageNumber{
+    margin-bottom: 0;
+
+}
+.read{
+    margin-top: 0;
+
+}
+
