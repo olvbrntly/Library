@@ -78,7 +78,7 @@ function getForm(){
     let formSubmit = document.createElement("button");
     formSubmit.setAttribute("id","formSubmit")
     formSubmit.textContent = "SUBMIT";
-    
+
     //appending title
     form.appendChild(titleLabel);
     form.appendChild(titleInput);
@@ -95,7 +95,7 @@ function getForm(){
     //append buttons
     form.appendChild(formExit);
     form.appendChild(formSubmit);
-  
+
   book.appendChild(form);
   newBook.disabled = true;
 
@@ -116,7 +116,8 @@ function getForm(){
       console.log(newAdd);
       myLibrary.push(newAdd);
       book.removeChild(form);
-      addBookToLibrary();
+      console.log(`${newAdd.title} and ${newAdd.author}`);
+      addBookToLibrary(newAdd);
       newBook.disabled = false
     }
   }
@@ -127,14 +128,43 @@ function getForm(){
 
 };
 
-function addBookToLibrary(){
-  for(i=0; i < myLibrary.length; i++){
+function addBookToLibrary(libraryBook){
+  //makes the individual book div
     let newBookDiv = document.createElement('div');
     newBookDiv.setAttribute('class', 'libraryBook');
-    newBookDiv.textContent = `book: ${myLibrary[i].title}, author: ${myLibrary[i].author}`;
-    library.appendChild(newBookDiv);
-  }
+   
+    //makes the title part of the box
+    let bookTitle = document.createElement('div');
+    bookTitle.setAttribute('id','bookTitle');
+    bookTitle.textContent = `Title: ${libraryBook.title}`;
 
+    let bookAuthor = document.createElement('div');
+    bookAuthor.setAttribute('id','bookAuthor');
+    bookAuthor.textContent = `Author: ${libraryBook.author}`;
+
+    let pageNumber= document.createElement('div');
+    pageNumber.setAttribute('id','pageNumber');
+    pageNumber.textContent = `${libraryBook.pages} pages`;
+
+    let readYetLabel = document.createElement('label');
+    readYetLabel.setAttribute("for","readYetSwitch")
+    readYetLabel.setAttribute("class","switch")
+    readYetLabel.textContent = 'Read'
+
+
+    let readYetSwitch = document.createElement("input");
+    readYetSwitch.setAttribute("type","checkbox");
+    readYetSwitch.setAttribute('class', 'read');
+
+    newBookDiv.appendChild(bookTitle);
+    newBookDiv.appendChild(bookAuthor);
+    newBookDiv.appendChild(pageNumber);
+
+    newBookDiv.appendChild(readYetLabel);
+    newBookDiv.appendChild(readYetSwitch);
+
+
+    library.appendChild(newBookDiv);
 }
 
 
