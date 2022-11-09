@@ -138,32 +138,39 @@ function addBookToLibrary(libraryBook){
     bookTitle.setAttribute('id','bookTitle');
     bookTitle.textContent = `Title: ${libraryBook.title}`;
 
+    //makes the author part of the box
     let bookAuthor = document.createElement('div');
     bookAuthor.setAttribute('id','bookAuthor');
     bookAuthor.textContent = `Author: ${libraryBook.author}`;
 
+    //makes the page number part of the box
     let pageNumber= document.createElement('div');
     pageNumber.setAttribute('id','pageNumber');
     pageNumber.textContent = `${libraryBook.pages} pages`;
 
+    //read label and checkbox part
     let readYetLabel = document.createElement('label');
     readYetLabel.setAttribute("for","readYetSwitch")
     readYetLabel.setAttribute("class","switch")
     readYetLabel.textContent = 'Read'
 
-
     let readYetSwitch = document.createElement("input");
     readYetSwitch.setAttribute("type","checkbox");
     readYetSwitch.setAttribute('class', 'read');
 
+    //box to put label and checkbox in 
+    let readBox=document.createElement('div');
+    readBox.setAttribute('id','readBox')
+    readBox.appendChild(readYetLabel);
+    readBox.appendChild(readYetSwitch);
+
+    //append all to new div box for each book
     newBookDiv.appendChild(bookTitle);
     newBookDiv.appendChild(bookAuthor);
     newBookDiv.appendChild(pageNumber);
-
-    newBookDiv.appendChild(readYetLabel);
-    newBookDiv.appendChild(readYetSwitch);
-
-
+    newBookDiv.appendChild(readBox);
+ 
+    //append to webpage
     library.appendChild(newBookDiv);
 }
 
