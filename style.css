@@ -91,25 +91,19 @@ body{
     background-color: white;;
 }
 
-#newBook:active {
-    background: #e5e5e5;
-    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
-       -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
-            box-shadow: inset 0px 0px 5px #c1c1c1;
-     outline: none;
-  }
 
 #library{
     grid-column:1/4;
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
+    
     border:2px solid red;
-    height:25em;
-}
+   }
 
 .libraryBook{
     margin:10px;
-    font-size:1.5em;
+    margin-bottom: 0;
+    font-size:25px;
     color:white;
     font-family: 'Lucida Console', Courier, monospace;
     background-color:black;
@@ -118,10 +112,11 @@ body{
     display:flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-
-
+    gap:2em;
+    border:2px solid green;
 }
+
+
 
 #pageNumber{
     margin-bottom: 0;
