@@ -96,14 +96,17 @@ body{
     grid-column:1/4;
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
-    
+    grid-template-rows: repeat(auto-fill, 250px);
     border:2px solid red;
+
    }
 
 .libraryBook{
     margin:10px;
+    padding:10px 5px 5px 5px;
+    height:200px;
     margin-bottom: 0;
-    font-size:25px;
+    font-size:17px;
     color:white;
     font-family: 'Lucida Console', Courier, monospace;
     background-color:black;
@@ -112,18 +115,18 @@ body{
     display:flex;
     flex-direction: column;
     align-items: center;
-    gap:2em;
-    border:2px solid green;
+    gap:1em;
+    
 }
 
-
-
-#pageNumber{
-    margin-bottom: 0;
-
-}
-.read{
-    margin-top: 0;
-
+#bookTitle{
+    font-size:22px;
+    font-style: italic;
+    text-decoration: underline;
+    
 }
 
+.checked{
+    background-color: white;
+    color:black;
+}
