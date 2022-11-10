@@ -67,7 +67,7 @@ function getForm(){
 
     let readInput = document.createElement("input");
     readInput.setAttribute("type","checkbox");
-    readInput.setAttribute('value','yes');
+    readInput.setAttribute('value','no');
     readInput.setAttribute("id","read");
 
     //create x button
@@ -136,7 +136,7 @@ function addBookToLibrary(libraryBook){
     //makes the title part of the box
     let bookTitle = document.createElement('div');
     bookTitle.setAttribute('id','bookTitle');
-    bookTitle.textContent = `Title: ${libraryBook.title}`;
+    bookTitle.textContent = `${libraryBook.title}`;
 
     //makes the author part of the box
     let bookAuthor = document.createElement('div');
@@ -169,7 +169,14 @@ function addBookToLibrary(libraryBook){
     newBookDiv.appendChild(bookAuthor);
     newBookDiv.appendChild(pageNumber);
     newBookDiv.appendChild(readBox);
- 
+
+    //create x button
+    let bookDelete = document.createElement("button");
+    bookDelete.setAttribute("id","bookDelete")
+    bookDelete.textContent = "X";
+
+    newBookDiv.appendChild(bookDelete);
+
     //append to webpage
     library.appendChild(newBookDiv);
 }
