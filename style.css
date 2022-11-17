@@ -105,8 +105,9 @@ body{
     margin:10px;
     padding:10px 5px 5px 5px;
     height:200px;
+    width:550px;
     margin-bottom: 0;
-    font-size:17px;
+    font-size:19px;
     color:white;
     font-family: 'Lucida Console', Courier, monospace;
     background-color:black;
@@ -116,8 +117,8 @@ body{
     flex-direction: column;
     align-items: center;
     gap:1em;
-    
 }
+
 
 #bookTitle{
     font-size:22px;
@@ -126,7 +127,3 @@ body{
     
 }
 
-.checked{
-    background-color: white;
-    color:black;
-}
