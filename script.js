@@ -149,32 +149,20 @@ function addBookToLibrary(libraryBook){
     pageNumber.textContent = `${libraryBook.pages} pages`;
 
     //read label and checkbox part
-    let readYetLabel = document.createElement('label');
-    readYetLabel.setAttribute("for","readYetSwitch")
-    readYetLabel.setAttribute("class","switch")
-    readYetLabel.textContent = 'Read'
+    let readButton = document.createElement("button");
+    readButton.setAttribute('id','readButton');
+    readButton.textContent ="Read";
 
-    let readYetSwitch = document.createElement("input");
-    readYetSwitch.setAttribute("type","checkbox");
-    readYetSwitch.setAttribute('class', 'read');
-
-    //box to put label and checkbox in 
-    let readBox=document.createElement('div');
-    readBox.setAttribute('id','readBox')
-    readBox.appendChild(readYetLabel);
-    readBox.appendChild(readYetSwitch);
+     //create x button
+    let bookDelete = document.createElement("button");
+    bookDelete.setAttribute("id","bookDelete");
+    bookDelete.textContent = "X";
 
     //append all to new div box for each book
     newBookDiv.appendChild(bookTitle);
     newBookDiv.appendChild(bookAuthor);
     newBookDiv.appendChild(pageNumber);
-    newBookDiv.appendChild(readBox);
-
-    //create x button
-    let bookDelete = document.createElement("button");
-    bookDelete.setAttribute("id","bookDelete")
-    bookDelete.textContent = "X";
-
+    newBookDiv.appendChild(readButton);
     newBookDiv.appendChild(bookDelete);
 
     //append to webpage
