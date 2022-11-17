@@ -170,6 +170,23 @@ function addBookToLibrary(libraryBook){
 
     //append to webpage
     library.appendChild(newBookDiv);
+
+    bookDelete.addEventListener('click', () =>{
+      myLibrary.splice(myLibrary.indexOf(libraryBook),1);
+      makeBook();
+    });
+
+
+}
+
+function makeBook(){
+  let library = document.getElementById('library');
+  let books = document.querySelectorAll('.libraryBook');
+  books.forEach(book => library.removeChild(book));
+
+    for(let i =0; i<myLibrary.length; i++){
+      addBookToLibrary(myLibrary[i]);
+    }
 }
 
 
