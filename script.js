@@ -132,6 +132,8 @@ function addBookToLibrary(libraryBook){
   //makes the individual book div
     let newBookDiv = document.createElement('div');
     newBookDiv.setAttribute('class', 'libraryBook');
+    newBookDiv.setAttribute('id', myLibrary.indexOf(libraryBook));
+
    
     //makes the title part of the box
     let bookTitle = document.createElement('div');
