@@ -130,6 +130,7 @@ function getForm(){
 
 function addBookToLibrary(libraryBook){
   //makes the individual book div
+  //makes id the index of the library array
     let newBookDiv = document.createElement('div');
     newBookDiv.setAttribute('class', 'libraryBook');
     newBookDiv.setAttribute('id', myLibrary.indexOf(libraryBook));
