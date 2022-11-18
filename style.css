@@ -97,7 +97,6 @@ body{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(auto-fill, 250px);
-    
 
    }
 
@@ -105,7 +104,6 @@ body{
     margin:10px;
     padding:10px 5px 5px 5px;
     height:200px;
-
     margin-bottom: 0;
     font-size:19px;
     color:white;
@@ -127,12 +125,16 @@ body{
 }
 
 .readButton{
-    background-color: rgb(236, 77, 77);
     font-family: 'Lucida Console', Courier, monospace;
+    font-size:15px;
     padding:5px;
     border-radius:5px;
+    font-weight:400;
+}
+.no{
+    background-color: rgb(230, 137, 111);
 }
 
 .yes{
-    background-color: rgb(162, 203, 162);
+    background-color: rgb(179, 213, 179);
 }
