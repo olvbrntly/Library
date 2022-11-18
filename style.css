@@ -97,7 +97,7 @@ body{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(auto-fill, 250px);
-    border:2px solid red;
+    
 
    }
 
@@ -105,7 +105,7 @@ body{
     margin:10px;
     padding:10px 5px 5px 5px;
     height:200px;
-    width:550px;
+
     margin-bottom: 0;
     font-size:19px;
     color:white;
@@ -119,7 +119,6 @@ body{
     gap:1em;
 }
 
-
 #bookTitle{
     font-size:22px;
     font-style: italic;
@@ -127,3 +126,13 @@ body{
     
 }
 
+.readButton{
+    background-color: rgb(236, 77, 77);
+    font-family: 'Lucida Console', Courier, monospace;
+    padding:5px;
+    border-radius:5px;
+}
+
+.yes{
+    background-color: rgb(162, 203, 162);
+}
