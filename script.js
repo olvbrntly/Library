@@ -153,8 +153,8 @@ function addBookToLibrary(libraryBook){
 
     //read label and checkbox part
     let readButton = document.createElement("button");
-    readButton.setAttribute('id','readButton');
-    readButton.textContent ="Read";
+    readButton.setAttribute('class','readButton');
+    readButton.textContent =" Not Read Yet";
 
      //create x button
     let bookDelete = document.createElement("button");
@@ -176,18 +176,33 @@ function addBookToLibrary(libraryBook){
       makeBook();
     });
 
+    readButton.addEventListener('click', (e) =>{
+      e.target.classList.toggle('yes');
+      const initialText = 'Not Read Yet';
 
+      if (readButton.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+        readButton.textContent = "Finished"
+      } else
+        readButton.textContent = initialText;
+      
+    
+      })
+    };
+     
+  
+    
+
+
+  function makeBook(){
+    let library = document.getElementById('library');
+    let books = document.querySelectorAll('.libraryBook');
+    books.forEach(book => library.removeChild(book));
+
+      for(let i =0; i<myLibrary.length; i++){
+        addBookToLibrary(myLibrary[i]);
+      }
 }
 
-function makeBook(){
-  let library = document.getElementById('library');
-  let books = document.querySelectorAll('.libraryBook');
-  books.forEach(book => library.removeChild(book));
-
-    for(let i =0; i<myLibrary.length; i++){
-      addBookToLibrary(myLibrary[i]);
-    }
-}
 
 
 
