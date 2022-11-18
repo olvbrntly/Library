@@ -9,8 +9,10 @@ function Book(title, author, pages, read){
   this.title = title
   this.author = author
   this.pages = pages
-  this.read = read
+  this.read = Boolean(read);
 };
+
+
 
 const theHobbit =new Book('The Hobbit', 'J.R.R Tolkien', '295', 'read');
 
@@ -67,9 +69,9 @@ function getForm(){
 
     let readInput = document.createElement("input");
     readInput.setAttribute("type","checkbox");
-    readInput.setAttribute('value','no');
+   //readInput.setAttribute('value','yes');
     readInput.setAttribute("id","read");
-
+  
     //create x button
     let formExit = document.createElement("button");
     formExit.setAttribute("id","formExit")
@@ -106,7 +108,7 @@ function getForm(){
   }
 
   //submit button on for adds a new Book in Library array
-  function submit(){
+  function submit(event){
     if(document.getElementById('title').value == ""){
       book.removeChild(form);
       newBook.disabled = false
@@ -116,17 +118,19 @@ function getForm(){
       console.log(newAdd);
       myLibrary.push(newAdd);
       book.removeChild(form);
-      console.log(`${newAdd.title} and ${newAdd.author}`);
+      // console.log(`${newAdd.title} and ${newAdd.author}`);
       addBookToLibrary(newAdd);
-      newBook.disabled = false
+      newBook.disabled = false;
+      event.preventDefault();
     }
   }
 
   //form button event listeners
   formExit.addEventListener('click', closeForm);
   formSubmit.addEventListener('click', submit);
-
+  
 };
+
 
 function addBookToLibrary(libraryBook){
   //makes the individual book div
@@ -175,24 +179,25 @@ function addBookToLibrary(libraryBook){
       myLibrary.splice(myLibrary.indexOf(libraryBook),1);
       makeBook();
     });
-
-    readButton.addEventListener('click', (e) =>{
-      e.target.classList.toggle('yes');
-      const initialText = 'Not Read Yet';
-
-      if (readButton.textContent.toLowerCase().includes(initialText.toLowerCase())) {
-        readButton.textContent = "Finished"
-      } else
-        readButton.textContent = initialText;
       
-    
-      })
-    };
+    readButton.addEventListener('click', ()=>{
+      libraryBook.read = !libraryBook.read;
+      console.log(libraryBook.read);
+      makeBook();
+    });
+
+    if(libraryBook.read === true){
+      readButton.textContent = "Read";
+      readButton.classList.add("yes");
+      readButton.classList.remove("no");
+    }else{
+      readButton.textContent = "Not Read";
+      readButton.classList.add("no");
+      readButton.classList.remove("yes");
+    }
+          
+        
      
-  
-    
-
-
   function makeBook(){
     let library = document.getElementById('library');
     let books = document.querySelectorAll('.libraryBook');
@@ -201,6 +206,7 @@ function addBookToLibrary(libraryBook){
       for(let i =0; i<myLibrary.length; i++){
         addBookToLibrary(myLibrary[i]);
       }
+}
 }
 
 
@@ -213,21 +219,18 @@ function addBookToLibrary(libraryBook){
 //all book objescts stores in a simple array so add a function that can take user inpout and sort the new book objects into an array
 
 
-//function that loops through array and dispolays each book on the page
-
-//display in some sort or table or each on their own card
-
-//add new book button that breings up a form allowing users to input the details for the new book
-
-
-//add button on each book dispolay that will remove book from library
-
-//associate your Dom elements with the actual objects in some way
-//one way is giving data attribute that correpsods to index of library array
-//add button that will change the read status
-//want to create a function that toggles a books read status on book prototype
 
 //not required to add any storage. will come back for that
 
 
+// readButton.addEventListener('click', (e) =>{
+    //   e.target.classList.toggle('yes');
+    //   const initialText = 'Not Read Yet';
 
+    //   if (readButton.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+    //     readButton.textContent = "Finished"
+    //   } else{
+    //     readButton.textContent = initialText;
+    //   }
+      
+    //   
