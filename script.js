@@ -12,18 +12,13 @@ function Book(title, author, pages, read){
   this.read = Boolean(read);
 };
 
-
-
 const theHobbit =new Book('The Hobbit', 'J.R.R Tolkien', '295', 'read');
-
-//bookOne.textContent = `${theHobbit.title} is written by ${theHobbit.author}. It has ${theHobbit.pages} pages and I have ${theHobbit.read} it.`
 
 newBook.addEventListener('click', getForm);
 
 let book = document.getElementById('book');
 
 //THE FORM ------
-
 function getForm(){
 
   let book = document.getElementById('book');
@@ -69,9 +64,9 @@ function getForm(){
 
     let readInput = document.createElement("input");
     readInput.setAttribute("type","checkbox");
-   //readInput.setAttribute('value','yes');
+    readInput.setAttribute('value','false');
     readInput.setAttribute("id","read");
-  
+
     //create x button
     let formExit = document.createElement("button");
     formExit.setAttribute("id","formExit")
@@ -98,39 +93,55 @@ function getForm(){
     form.appendChild(formExit);
     form.appendChild(formSubmit);
 
-  book.appendChild(form);
-  newBook.disabled = true;
+    book.appendChild(form);
+    newBook.disabled = true;
 
-  //exit button is funcitonal
-  function closeForm(){
-    book.removeChild(form);
-    newBook.disabled = false
-  }
-
-  //submit button on for adds a new Book in Library array
-  function submit(event){
-    if(document.getElementById('title').value == ""){
+    //exit button is funcitonal
+    function closeForm(){
       book.removeChild(form);
       newBook.disabled = false
     }
-    else{
-      let newAdd = new Book(document.getElementById('title').value, document.getElementById('author').value ,document.getElementById('pages').value, document.getElementById('read').value);
-      console.log(newAdd);
-      myLibrary.push(newAdd);
-      book.removeChild(form);
-      // console.log(`${newAdd.title} and ${newAdd.author}`);
-      addBookToLibrary(newAdd);
-      newBook.disabled = false;
-      event.preventDefault();
-    }
-  }
 
-  //form button event listeners
-  formExit.addEventListener('click', closeForm);
-  formSubmit.addEventListener('click', submit);
-  
+    //submit button on for adds a new Book in Library array
+    function submit(event){
+      if(document.getElementById('title').value == ""){
+        book.removeChild(form);
+        newBook.disabled = false
+      }
+      else{
+        let newAdd = new Book(document.getElementById('title').value, document.getElementById('author').value ,document.getElementById('pages').value, document.getElementById('read').value);
+        validate(newAdd);
+        console.log(newAdd);
+        myLibrary.push(newAdd);
+        book.removeChild(form);
+        // console.log(`${newAdd.title} and ${newAdd.author}`);
+        addBookToLibrary(newAdd);
+        newBook.disabled = false;
+        event.preventDefault();
+      
+      }
+    }
+
+    //form button event listeners
+    formExit.addEventListener('click', closeForm);
+    formSubmit.addEventListener('click', submit);
+    
 };
 
+//checks if the checkbox is clicked when submitting form
+function validate(newAdd){
+  let readInput = document.getElementById("read");
+  if(readInput.checked == true){
+    readInput.removeAttribute('value','false')
+    readInput.setAttribute('value','true')
+    newAdd.read = true;
+  }else{
+    readInput.removeAttribute('value','true')
+    readInput.setAttribute('value','false');
+    newAdd.read = false;
+  }
+  console.log(readInput.value);
+}
 
 function addBookToLibrary(libraryBook){
   //makes the individual book div
@@ -139,7 +150,6 @@ function addBookToLibrary(libraryBook){
     newBookDiv.setAttribute('class', 'libraryBook');
     newBookDiv.setAttribute('id', myLibrary.indexOf(libraryBook));
 
-   
     //makes the title part of the box
     let bookTitle = document.createElement('div');
     bookTitle.setAttribute('id','bookTitle');
@@ -184,7 +194,6 @@ function addBookToLibrary(libraryBook){
     //  changes read status in object
     readButton.addEventListener('click', ()=>{
       libraryBook.read = !libraryBook.read;
-      console.log(libraryBook.read);
       makeBook();
     });
 
@@ -198,8 +207,8 @@ function addBookToLibrary(libraryBook){
       readButton.classList.add("no");
       readButton.classList.remove("yes");
     }
-          
-        
+  }   
+
   //remakes the books in order to maintain index ID
   function makeBook(){
     let library = document.getElementById('library');
@@ -209,6 +218,5 @@ function addBookToLibrary(libraryBook){
       for(let i =0; i<myLibrary.length; i++){
         addBookToLibrary(myLibrary[i]);
       }
-}
-}
+  }
 
