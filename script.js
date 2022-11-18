@@ -175,17 +175,20 @@ function addBookToLibrary(libraryBook){
     //append to webpage
     library.appendChild(newBookDiv);
 
+    //deletes a book from the display and array
     bookDelete.addEventListener('click', () =>{
       myLibrary.splice(myLibrary.indexOf(libraryBook),1);
       makeBook();
     });
-      
+
+    //  changes read status in object
     readButton.addEventListener('click', ()=>{
       libraryBook.read = !libraryBook.read;
       console.log(libraryBook.read);
       makeBook();
     });
 
+    //gives the read button styling according to read or not
     if(libraryBook.read === true){
       readButton.textContent = "Read";
       readButton.classList.add("yes");
@@ -197,7 +200,7 @@ function addBookToLibrary(libraryBook){
     }
           
         
-     
+  //remakes the books in order to maintain index ID
   function makeBook(){
     let library = document.getElementById('library');
     let books = document.querySelectorAll('.libraryBook');
@@ -209,28 +212,3 @@ function addBookToLibrary(libraryBook){
 }
 }
 
-
-
-
-// function addBookToLibrary() {
-//   //do stuff here
-// }
-
-//all book objescts stores in a simple array so add a function that can take user inpout and sort the new book objects into an array
-
-
-
-//not required to add any storage. will come back for that
-
-
-// readButton.addEventListener('click', (e) =>{
-    //   e.target.classList.toggle('yes');
-    //   const initialText = 'Not Read Yet';
-
-    //   if (readButton.textContent.toLowerCase().includes(initialText.toLowerCase())) {
-    //     readButton.textContent = "Finished"
-    //   } else{
-    //     readButton.textContent = initialText;
-    //   }
-      
-    //   
