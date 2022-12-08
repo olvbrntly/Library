@@ -4,12 +4,13 @@ let library = document.getElementById('library');
 
 let myLibrary=[]
 
-function Book(title, author, pages, read){
-  //the constructor
+class Book{
+  constructor(title, author, pages, read) {
   this.title = title
   this.author = author
   this.pages = pages
   this.read = Boolean(read);
+  }
 };
 
 const theHobbit =new Book('The Hobbit', 'J.R.R Tolkien', '295', 'read');
